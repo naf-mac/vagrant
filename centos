@@ -1,0 +1,9 @@
+# https://app.vagrantup.com/scorputty/boxes/centos-awx
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/8"
+  config.disksize.size = '20GB'
+  
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  end
+end
