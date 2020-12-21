@@ -1,9 +1,11 @@
-# https://app.vagrantup.com/scorputty/boxes/centos-awx
+# Centos with 2 cpus 4GB memory 20 GB 
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/8"
   config.disksize.size = '20GB' # vagrant plugin install vagrant-disksize
   
   config.vm.provider :virtualbox do |vb|
+    vb.memory = 4096
+	vb.cpus = 2
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 end
